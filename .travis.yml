@@ -1,0 +1,46 @@
+language: node_js
+node_js:
+- '6'
+- '8'
+script: npm run lint && npm run test
+deploy:
+- provider: lambda
+  function_name: ods-build-amazon-url
+  region: us-east-1
+  role: arn:aws:iam::766510574476:role/oddly_shaped_dog_execution
+  runtime: nodejs6.10
+  handler_name: build-amazon-url
+  timeout: 10
+  access_key_id: AKIAI6DDUJBUN46S6JKA
+  secret_access_key:
+    secure: TFJ2WZzlCQBDXybuSWYbqDyPnlL26V2zH4EU+TdSXZ29DxrfxmCFgp4RrCRyUY5tqENtXP5hP7iwD8tqf3wbls9kJeVs1KhawywBVHqVaZVKK07F+Ag4wkAZOhWnu4oGlxb0PjD59+vYOiicZq9S+BdKfWlsZpeNf3vFOskYbyaXTIcpQG+N/XvgrOgVfmDm898OUJtye4vE111u030dWj5SgNBmiMz1xuDuc8Ol/7dk7sw9uXAy5XaZSKygWchZJIzi0W/DfKOErDKDSCprPD27ib4fHcIi++DNSxnLzOFhMRsCd07H/tskT0BkRzFNNTVtC64Sy14wUJLZzFGKjPQ8q+tpKx6PetFkVXAKb/hy70Eey8+9ypTZrHZ0GYeN6R+EtDKdmQ+RkUo3DnGXoK03b1W7TRavwt6RZiks0pChMqx1vxgVF1tRhuPuv7pQ44CtYRxFKbdNAzp14pgJC0ncgMZEmMe6nE0mfzrnM9tZAa0vHntGxv9VxAlitA3C4kmkzm55X++9UGRY7Xxi//RySvUMPIkBJDpJt6o5bgKuZkU9OTAOGuBXRKnnByRraiJuzPxdUHLUNLW4hVuVVEA8M7EWYoICkYLp80/rJtNq+lBzPVVuMOBAb3dzNZoEZ4u+tqsQq4gwCbw28yn8iH1mZHPwRzV195OTeCLHJ8M=
+- provider: lambda
+  function_name: ods-list
+  region: us-east-1
+  role: arn:aws:iam::766510574476:role/oddly_shaped_dog_execution
+  runtime: nodejs6.10
+  handler_name: list
+  timeout: 15
+  access_key_id: AKIAI6DDUJBUN46S6JKA
+  secret_access_key:
+    secure: TFJ2WZzlCQBDXybuSWYbqDyPnlL26V2zH4EU+TdSXZ29DxrfxmCFgp4RrCRyUY5tqENtXP5hP7iwD8tqf3wbls9kJeVs1KhawywBVHqVaZVKK07F+Ag4wkAZOhWnu4oGlxb0PjD59+vYOiicZq9S+BdKfWlsZpeNf3vFOskYbyaXTIcpQG+N/XvgrOgVfmDm898OUJtye4vE111u030dWj5SgNBmiMz1xuDuc8Ol/7dk7sw9uXAy5XaZSKygWchZJIzi0W/DfKOErDKDSCprPD27ib4fHcIi++DNSxnLzOFhMRsCd07H/tskT0BkRzFNNTVtC64Sy14wUJLZzFGKjPQ8q+tpKx6PetFkVXAKb/hy70Eey8+9ypTZrHZ0GYeN6R+EtDKdmQ+RkUo3DnGXoK03b1W7TRavwt6RZiks0pChMqx1vxgVF1tRhuPuv7pQ44CtYRxFKbdNAzp14pgJC0ncgMZEmMe6nE0mfzrnM9tZAa0vHntGxv9VxAlitA3C4kmkzm55X++9UGRY7Xxi//RySvUMPIkBJDpJt6o5bgKuZkU9OTAOGuBXRKnnByRraiJuzPxdUHLUNLW4hVuVVEA8M7EWYoICkYLp80/rJtNq+lBzPVVuMOBAb3dzNZoEZ4u+tqsQq4gwCbw28yn8iH1mZHPwRzV195OTeCLHJ8M=
+- provider: lambda
+  function_name: ods-pick-random-line
+  region: us-east-1
+  role: arn:aws:iam::766510574476:role/oddly_shaped_dog_execution
+  runtime: nodejs6.10
+  handler_name: pick-random-line
+  timeout: 15
+  access_key_id: AKIAI6DDUJBUN46S6JKA
+  secret_access_key:
+    secure: TFJ2WZzlCQBDXybuSWYbqDyPnlL26V2zH4EU+TdSXZ29DxrfxmCFgp4RrCRyUY5tqENtXP5hP7iwD8tqf3wbls9kJeVs1KhawywBVHqVaZVKK07F+Ag4wkAZOhWnu4oGlxb0PjD59+vYOiicZq9S+BdKfWlsZpeNf3vFOskYbyaXTIcpQG+N/XvgrOgVfmDm898OUJtye4vE111u030dWj5SgNBmiMz1xuDuc8Ol/7dk7sw9uXAy5XaZSKygWchZJIzi0W/DfKOErDKDSCprPD27ib4fHcIi++DNSxnLzOFhMRsCd07H/tskT0BkRzFNNTVtC64Sy14wUJLZzFGKjPQ8q+tpKx6PetFkVXAKb/hy70Eey8+9ypTZrHZ0GYeN6R+EtDKdmQ+RkUo3DnGXoK03b1W7TRavwt6RZiks0pChMqx1vxgVF1tRhuPuv7pQ44CtYRxFKbdNAzp14pgJC0ncgMZEmMe6nE0mfzrnM9tZAa0vHntGxv9VxAlitA3C4kmkzm55X++9UGRY7Xxi//RySvUMPIkBJDpJt6o5bgKuZkU9OTAOGuBXRKnnByRraiJuzPxdUHLUNLW4hVuVVEA8M7EWYoICkYLp80/rJtNq+lBzPVVuMOBAb3dzNZoEZ4u+tqsQq4gwCbw28yn8iH1mZHPwRzV195OTeCLHJ8M=
+- provider: lambda
+  function_name: ods-tracery
+  region: us-east-1
+  role: arn:aws:iam::766510574476:role/oddly_shaped_dog_execution
+  runtime: nodejs6.10
+  handler_name: tracery
+  timeout: 15
+  access_key_id: AKIAI6DDUJBUN46S6JKA
+  secret_access_key:
+    secure: TFJ2WZzlCQBDXybuSWYbqDyPnlL26V2zH4EU+TdSXZ29DxrfxmCFgp4RrCRyUY5tqENtXP5hP7iwD8tqf3wbls9kJeVs1KhawywBVHqVaZVKK07F+Ag4wkAZOhWnu4oGlxb0PjD59+vYOiicZq9S+BdKfWlsZpeNf3vFOskYbyaXTIcpQG+N/XvgrOgVfmDm898OUJtye4vE111u030dWj5SgNBmiMz1xuDuc8Ol/7dk7sw9uXAy5XaZSKygWchZJIzi0W/DfKOErDKDSCprPD27ib4fHcIi++DNSxnLzOFhMRsCd07H/tskT0BkRzFNNTVtC64Sy14wUJLZzFGKjPQ8q+tpKx6PetFkVXAKb/hy70Eey8+9ypTZrHZ0GYeN6R+EtDKdmQ+RkUo3DnGXoK03b1W7TRavwt6RZiks0pChMqx1vxgVF1tRhuPuv7pQ44CtYRxFKbdNAzp14pgJC0ncgMZEmMe6nE0mfzrnM9tZAa0vHntGxv9VxAlitA3C4kmkzm55X++9UGRY7Xxi//RySvUMPIkBJDpJt6o5bgKuZkU9OTAOGuBXRKnnByRraiJuzPxdUHLUNLW4hVuVVEA8M7EWYoICkYLp80/rJtNq+lBzPVVuMOBAb3dzNZoEZ4u+tqsQq4gwCbw28yn8iH1mZHPwRzV195OTeCLHJ8M=
